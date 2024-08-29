@@ -42,7 +42,7 @@ onMount(() => {
 <Navbar></Navbar>
 <div class="hero">
     {#if ready==true}
-    <img src={HeroAttack} alt="Attack" transition:slide|global={{delay:300, easing:backIn}}>
+    <img src={HeroAttack} alt="Attack" transition:slide|global={{delay:300}}>
     <img src={HeroOfThe} alt="Of The" transition:slide={{delay:900}}>
     <img src={HeroFrontEndDev} alt="FrontEndDeveloper" transition:slide={{delay:1500}}>
     {/if}

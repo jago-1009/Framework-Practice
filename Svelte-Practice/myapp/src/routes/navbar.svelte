@@ -1,4 +1,8 @@
 <style>
+    @font-face {
+        font-family: 'Universal Serif';
+        src: url('../fonts/Universal\ Serif.ttf');
+    }
     nav {
         width:100%;
         
@@ -9,7 +13,8 @@
         
     }
      a {
-        
+        font-family: 'Universal Serif';
+        letter-spacing: 1.5px;
         color:white;
         text-decoration: none;
         font-size: 16px;

@@ -17,6 +17,7 @@ let intersectHand;
 let intersectScream;
 let intersectCoding;
 let intersectSuccess;
+let intersectTheEnd
 </script>
 <style global>
     :root {
@@ -50,6 +51,6 @@ let intersectSuccess;
 <Scream id="scream" intersecting={intersectScream}></Scream>
 <Coding id="coding" intersecting={intersectCoding}></Coding>
 <Success id="success" intersecting={intersectSuccess}></Success>
-<TheEnd></TheEnd>
+<TheEnd id="theend" intersecting={intersectTheEnd}></TheEnd>
 <Footer></Footer>
 </body>

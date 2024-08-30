@@ -3,9 +3,10 @@
     import Banneroverlay from "./banneroverlay.svelte";
     import IntersectionObserver from "svelte-intersection-observer/IntersectionObserver.svelte";
     import { fade } from "svelte/transition";
-    export let id="theend";
+    export let id = "theend";
+    export let intersecting;
     let element;
-    let intersecting;
+
 </script>
 <style>
     h1 {
@@ -38,7 +39,7 @@
 <Filler></Filler>
 <IntersectionObserver {element} bind:intersecting threshold={1} >
     <Banneroverlay></Banneroverlay>
-    <div class="hero" transition:fade={{delay:600}}>
+    <div class="hero" transition:fade={{delay:600}} {id}>
         <h1 transition:fade={{delay:1200}}>The End!</h1>
 
 

@@ -8,17 +8,7 @@
     export let intersecting;
     let element;
    // Debounce function to limit how often the intersection update is processed
-   function debounce(func, wait) {
-        let timeout;
-        return function(...args) {
-            clearTimeout(timeout);
-            timeout = setTimeout(() => func.apply(this, args), wait);
-        };
-    }
 
-    const handleIntersection = debounce((entry) => {
-        intersecting = entry.isIntersecting;
-    }, 100); // Adjust the debounce wait time as needed
 </script>
 <style>
     .filler {

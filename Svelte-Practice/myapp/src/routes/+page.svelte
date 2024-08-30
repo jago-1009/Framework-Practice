@@ -1,98 +1,55 @@
 <script>
-	import Footer from "./footer.svelte";
-import Navbar from "./navbar.svelte";
-import { onMount } from "svelte";
-import HeroAttack from '../assets/Hero-Attack.png'
-import HeroOfThe from '../assets/Hero-Of-The.png';
-import HeroFrontEndDev from '../assets/Hero-Front-End-Developer.png';
-import { slide } from "svelte/transition";
-import {backIn} from 'svelte/easing';
-import HeroSignature from '../assets/Hero-Signature.png'
-	
-let ready=false;
-
-onMount(() => { 
-    requestAnimationFrame(()=>{
-        setTimeout(()=>{
-            ready = true
-        }, 0)
-    })
- }) // Adjust the delay as needed})
+//---IMPORT STATEMENTS---
+import Footer from "./footer.svelte";
+import About from "./about.svelte";
+import Hero from "./hero.svelte";
+import Filler from "./filler.svelte";
+import Lightning from "./lightning.svelte";
+import Laptophand from "./laptophand.svelte";
+import Scream from "./scream.svelte";
+import Coding from "./coding.svelte";
+import Success from "./success.svelte";
+import TheEnd from "./theend.svelte";
+//---VARIABLE DECLARATIONS---
+let intersectAbout;
+let intersectLightning;
+let intersectHand;
+let intersectScream;
+let intersectCoding;
+let intersectSuccess;
 </script>
-<style>
-    .hero-signature {
-        position: absolute;
-        top:5%;
+<style global>
+    :root {
+        --light-gray: #cccccc;
+        --subtitle-yellow:#F3CE32;
     }
+   
     body {
         height: 100%;
         background-color: #000000;
     }
-    .hero-overlay {
-        position: absolute;
-        opacity: 20%;
-        z-index: 2;
-        width:95%;
-        height:822px;
-        background-image: url('../assets/Hero-Grain-Overlay.gif');
-        background-size:contain;
+    p {
+        color:var(--light-gray);
+        font-style: italic;
+        border:1px black;
+        position: relative;
+        display: flex;
+        font-size:32px;
+        font-family:Arial, Helvetica, sans-serif;
+       text-shadow: 2px 2px black;
+        bottom:100px;
     }
-   .hero {
-    position: relative;
-    z-index: 1;
-    width:100%;
-    height:822px;
-    background-image: url('../assets/Hero-Background.png');
-    background-repeat: no-repeat;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-   flex-direction: column;
-   background-size: 100%;
-   }
-   img {
-    max-width: 100%;
-    margin: 0 auto;
-   }
-   @media screen and (max-width:1024px) {
-    .hero {
-        background-image: url('../assets/Hero-Background-laptop.png');
-        height:600px;
-        
-    }
-   }
-   @media screen and (max-width:700px) {
-    .hero {
-        height: 600px;
-    }
-   }
-   @media screen and (max-width:500px) {
-    .hero {
-        height:430px;
-    }
-   }
-   @media screen and (max-width:400px) {
-    .hero {
-        height:350px;
-    }
-   }
-   @media screen and (max-width:350px) {
-    .hero {
-        height:300px;
-    }
-   }
+    
 </style>
 <body>
-<Navbar></Navbar>
-<div class="hero-overlay"></div>
-
-<div class="hero">
-    <img src={HeroSignature} alt="Jacob Garwood presents" class="hero-signature">
-    {#if ready==true}
-    <img src={HeroAttack} alt="Attack" transition:slide|global={{delay:300}}>
-    <img src={HeroOfThe} alt="Of The" transition:slide={{delay:900}}>
-    <img src={HeroFrontEndDev} alt="FrontEndDeveloper" transition:slide={{delay:1500}}>
-    {/if}
-</div>
+<Hero></Hero>
+<Filler></Filler>
+<About id="about" intersecting={intersectAbout}></About>
+<Lightning id="lightning" intersecting={intersectLightning}></Lightning>
+<Laptophand id="laptop-hand" intersecting={intersectHand}></Laptophand>
+<Scream id="scream" intersecting={intersectScream}></Scream>
+<Coding id="coding" intersecting={intersectCoding}></Coding>
+<Success id="success" intersecting={intersectSuccess}></Success>
+<TheEnd></TheEnd>
 <Footer></Footer>
 </body>
